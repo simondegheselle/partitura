@@ -1,0 +1,25 @@
+<div class="bewerk-opdracht-page page">
+    <div class="container page">
+        <div class="row">
+            <div class="col-md-10 offset-md-1 col-xs-12">
+
+                <list-errors errors="$ctrl.errors"></list-errors>
+
+                <form>
+                    <fieldset ng-disabled="$ctrl.isSubmitting">
+                        <fieldset class="form-group">
+                            <label for="naam">Naam</label>
+                            <input class="form-control form-control-lg" ng-model="$ctrl.opdracht.naam" type="text" name="naam" required/>
+                        </fieldset>
+
+                        <button class="btn btn-lg pull-xs-right btn-primary" type="button" ng-click="$ctrl.submit()">
+                            <span ng-show="$ctrl.bewerkType === 'bewerk-opdracht'">Bewerk opdracht</span>
+                            <span ng-show="$ctrl.bewerkType === 'toevoegen-opdracht'">Voeg opdracht toe</span>
+                        </button>
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

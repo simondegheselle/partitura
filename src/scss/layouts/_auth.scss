@@ -1,0 +1,35 @@
+.auth-page {
+	.login-box {
+		background: #fff;
+		border-radius: 10px;
+		padding: 0 !important;
+
+		.title {
+			border-bottom: 1px solid #eee;
+			padding: 1em;
+			font-size: 1.3em;
+			font-weight: bold;
+			padding-left: 2em;
+		}
+
+		.form {
+			padding: 3em;
+			.title {
+				border-bottom: 1px solid #333;
+				background: red;
+			}
+
+			input {
+				background: rgba(245,245,257, 1);
+				font-weight: 300;
+			}
+
+			button {
+				margin-top: 1em;
+				font-weight: 300;
+			}
+
+		}
+	}
+	padding-top: 1em;
+}

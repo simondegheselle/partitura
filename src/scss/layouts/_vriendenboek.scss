@@ -1,0 +1,89 @@
+.vriendenboek-page {
+
+	.vriendenboek-overview {
+		margin-top: 2em;
+	}
+
+	a.vriend-link {
+		margin-bottom: 2em;
+		text-decoration: none;
+		background: white;
+		display: block;
+		border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+
+		.details {
+			padding: 0.5em 1em;
+			z-index: 30;
+
+			.vriend-titel{
+				color: #384047;
+				font-weight: bold;
+			}
+
+		  .vriend-soort {
+				color: #576366;
+				font-weight: normal;
+			}
+
+		}
+
+	.vriend-img {
+		overflow: hidden;
+		height: 150px;
+		margin: auto;
+		
+		
+	}
+		img {
+			width: 100%;
+			-webkit-transform: scale(1);
+			transform: scale(1);
+			-webkit-transition: .3s ease-in-out;
+			transition: .3s ease-in-out;
+			z-index: -1;
+		}
+
+		&:hover {
+			text-decoration: none;
+			cursor: pointer;
+
+			img {
+				-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+			}
+
+			.details {
+				background: #5CB85C;
+
+				.vriend-titel{
+					color: white;
+				}
+
+				.vriend-soort {
+					color: darken(#fff, 5%);
+				}
+
+			}
+		}
+	}
+	.panel {
+		margin: auto;
+		max-width: 70%;
+		margin-bottom:20px;
+		background-color:#fff;
+		border:1px solid #2c3e50;
+		border-radius:4px;
+		-webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);
+		box-shadow:0 1px 1px rgba(0,0,0,.05)
+	}
+	.panel-body {
+		padding:15px
+	}
+	.panel-heading {
+		padding:10px 15px;
+		border-bottom:1px solid #2c3e50;
+		border-top-left-radius:3px;
+		border-top-right-radius:3px
+	}
+}

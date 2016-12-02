@@ -1,0 +1,40 @@
+<div class="auth-page page">
+  <div class="container page">
+    <div class="row">
+
+
+      <div class="col-md-6 offset-md-3 col-xs-12 login-box">
+          <div class="title">
+              {{$ctrl.title}}
+          </div>
+
+        <list-errors errors="$ctrl.errors"></list-errors>
+
+        <form ng-submit="$ctrl.submitForm()" class="form">
+          <fieldset ng-disabled="$ctrl.isSubmitting">
+
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg"
+                type="email"
+                placeholder="Email"
+                ng-model="$ctrl.formData.email" />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg"
+                type="password"
+                placeholder="Password"
+                ng-model="$ctrl.formData.password" />
+            </fieldset>
+
+            <button class="btn btn-lg btn-primary pull-xs-right"
+              type="submit">Login
+            </button>
+
+          </fieldset>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
