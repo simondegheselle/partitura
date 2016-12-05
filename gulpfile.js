@@ -60,9 +60,9 @@ gulp.task('styles', function() {
 
 // images
 gulp.task('image', function () {
-  gulp.src('src/res/images/*')
+  gulp.src('src/assets/img/**/*')
     .pipe(image())
-    .pipe(gulp.dest('build/imgs'));
+    .pipe(gulp.dest('build/assets/img'));
 });
 
 gulp.task('views', function() {

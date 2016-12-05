@@ -18,11 +18,12 @@ import './auth';
 import './settings';
 import './editor';
 import './opdrachten';
-import './bewerk-opdracht';
+import './beheer-opdrachten';
 
 
 // Create and bootstrap application
 const requires = [
+    'ngMaterial',
   'ui.router',
   'templates',
   'app.layout',
@@ -35,7 +36,7 @@ const requires = [
   'app.settings',
   'app.editor',
   'app.opdrachten',
-  'app.bewerk-opdracht'
+  'app.beheer-opdrachten'
 ];
 
 // Mount on window for testing

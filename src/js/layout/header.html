@@ -1,85 +1,70 @@
 <nav class="navbar navbar-light">
-  <div class="container">
+    <div class="container">
 
-    <a class="navbar-brand"
-      ui-sref="app.home"
-      ng-bind="::$ctrl.appName | uppercase">
-    </a>
+        <a class="navbar-brand" ui-sref="app.home" ng-bind="::$ctrl.appName | uppercase"></a>
 
-    <!-- Show this for logged out users -->
-    <ul show-authed="false"
-      class="nav navbar-nav pull-xs-right">
+        <!-- Show this for logged out users -->
+        <ul show-authed="false" class="nav navbar-nav pull-xs-right">
 
-      <li class="nav-item">
-        <a class="nav-link"
-          ui-sref-active="active"
-          ui-sref="app.home">
-          Home
-        </a>
-      </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.home">
+                    Home
+                </a>
+            </li>
 
-      <li class="nav-item">
-        <a class="nav-link login"
-          ui-sref-active="active"
-          ui-sref="app.login">
-          Login
-        </a>
-      </li>
-    </ul>
+            <li class="nav-item">
+                <a class="nav-link login" ui-sref-active="active" ui-sref="app.login">
+                    Login
+                </a>
+            </li>
+        </ul>
 
-    <!-- Show this for logged in users -->
-    <ul show-authed="true"
-      class="nav navbar-nav pull-xs-right">
+        <!-- Show this for logged in users -->
+        <ul show-authed="true" class="nav navbar-nav pull-xs-right">
 
-      <li class="nav-item">
-        <a class="nav-link"
-          ui-sref-active="active"
-          ui-sref="app.opdrachten">
-          Opdrachten
-        </a>
-      </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.opdrachten">
+                    Opdrachten
+                </a>
+            </li>
 
-      <li class="nav-item">
-        <a class="nav-link"
-          ui-sref-active="active"
-          ui-sref="app.toevoegen-opdracht">
-          Nieuwe opdracht
-        </a>
-      </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.beheer-opdrachten">
+                    Beheer opdrachten
+                </a>
+            </li>
 
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.partituren">
+                    Partituren
+                </a>
+            </li>
 
-      <li class="nav-item">
-        <a class="nav-link"
-          ui-sref-active="active"
-          ui-sref="app.partituren">
-          Partituren
-        </a>
-      </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.profile.main({ username: $ctrl.currentUser.username})">
+                    <img ng-src="{{$ctrl.currentUser.image}}" class="user-pic"/>
+                    {{ $ctrl.currentUser.username }}
+                </a>
+            </li>
+            <button class="btn btn-outline-danger" ng-click="$ctrl.logout()">
+                Log uit
+            </button>
 
-      <li class="nav-item">
-        <a class="nav-link"
-          ui-sref-active="active"
-          ui-sref="app.profile.main({ username: $ctrl.currentUser.username})">
-          <img ng-src="{{$ctrl.currentUser.image}}" class="user-pic" />
-          {{ $ctrl.currentUser.username }}
-        </a>
-      </li>
-
-    </ul>
+        </ul>
 
 
-  </div>
+    </div>
 </nav>
 
 <ul class='sg-multicolor'>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
 </ul>
