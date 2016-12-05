@@ -10,7 +10,7 @@ beheerOpdrachtenModule.config(BeheerOpdrachtenConfig);
 
 // Controllers
 
-import DialogCtrl from './dialog.controller';
+import DialogCtrl from './beheer-opdracht-dialog.controller';
 beheerOpdrachtenModule.controller('DialogCtrl', DialogCtrl);
 
 import BeheerOpdrachtenCtrl from './beheer-opdrachten.controller';

@@ -9,7 +9,11 @@
             <div class="opdracht-wrapper col-md-4">
 
                 <div class="opdracht">
-                    <div class="opdracht-meta"></div>
+                    <div class="opdracht-meta">
+                        <div class="deadline">
+                            {{opdracht.deadline | date:'dd/MM'}}
+                        </div>
+                    </div>
                     <div class="opdracht-content">
                         <div class="opdracht-naam">
                             {{opdracht.naam}}
@@ -19,7 +23,7 @@
                         </div>
                         <div class="bewerk">
                             <i class="material-icons" ng-click="$ctrl.showBewerken($event, 'Bewerk', opdracht)">mode_edit</i>
-                            <i class="material-icons"  ng-click="$ctrl.verwijder($event, opdracht)">delete</i>
+                            <i class="material-icons" ng-click="$ctrl.verwijder($event, opdracht)">delete</i>
                         </div>
                     </div>
                 </div>

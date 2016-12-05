@@ -60,7 +60,7 @@ class BeheerOpdrachtenCtrl {
     showBewerken(ev, type, opdracht) {
         this._$mdDialog.show({
                 controller: 'DialogCtrl as $ctrl',
-                templateUrl: 'beheer-opdrachten/dialog1.tmpl.html',
+                templateUrl: 'beheer-opdrachten/beheer-opdracht-dialog.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
