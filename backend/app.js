@@ -39,8 +39,6 @@ if(isProduction){
 }
 
 require('./models/User');
-require('./models/Article');
-require('./models/Comment');
 require('./config/passport');
 require('./models/Opdracht');
 

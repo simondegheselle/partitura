@@ -1,7 +1,27 @@
- <div class="opdrachten-page">
+<div class="opdrachten-page">
+    <div class="container">
 
-     <div class="opdrachten" ng-repeat="opdracht in $ctrl.opdrachten">
-         {{opdracht.naam}}
-     </div>
+        <div class="opdrachten" ng-repeat="opdracht in $ctrl.opdrachten">
+            <div class="opdracht-wrapper col-md-4">
+
+                <div class="opdracht">
+                    <div class="opdracht-meta">
+                        <div class="deadline">
+                            {{opdracht.deadline | date:'dd/MM'}}
+                        </div>
+                    </div>
+                    <div class="opdracht-content">
+                        <div class="opdracht-naam">
+                            {{opdracht.naam}}
+                        </div>
+                        <div class="opdracht-beschrijving">
+                            {{opdracht.beschrijving}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </div>
