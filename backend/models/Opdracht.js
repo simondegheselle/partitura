@@ -4,8 +4,8 @@ var OpdrachtSchema = new mongoose.Schema({
   naam: String,
   beschrijving: String,
   deadline: { type: mongoose.Schema.Types.Date },
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
-
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  afgewerkt: Boolean
 }, {timestamps: true});
 
 // Requires population of author
@@ -15,7 +15,8 @@ OpdrachtSchema.methods.toJSON = function(){
     naam: this.naam,
     beschrijving: this.beschrijving,
     user: this.user.toJSON(),
-    deadline: this.deadline
+    deadline: this.deadline,
+    afgewerkt: this.afgewerkt
   };
 };
 

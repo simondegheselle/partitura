@@ -72,4 +72,18 @@ router.post('/users', function(req, res, next){
   }).catch(next);
 });
 
+router.get('/', auth.optional, function(req, res, next) {
+    return Promise.all([
+        User.find().exec() /*{ user: req.payload.id }*/
+    ]).then(function(results) {
+        var users = results[0];
+        return res.json({
+            users: user.map(function(user) {
+                return user.toJSON();
+            })
+        })
+    }).catch(next);
+});
+
+
 module.exports = router;

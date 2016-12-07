@@ -19,6 +19,7 @@ import './settings';
 import './editor';
 import './opdrachten';
 import './beheer-opdrachten';
+import './beheer-studenten';
 
 
 // Create and bootstrap application
@@ -36,7 +37,8 @@ const requires = [
   'app.settings',
   'app.editor',
   'app.opdrachten',
-  'app.beheer-opdrachten'
+  'app.beheer-opdrachten',
+  'app.beheer-studenten'
 ];
 
 // Mount on window for testing
