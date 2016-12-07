@@ -73,6 +73,10 @@ router.put('/opdracht', auth.required, function(req, res, next) {
             opdracht.deadline = req.body.opdracht.deadline;
         }
 
+        if (typeof req.body.opdracht.afgewerkt !== 'undefined') {
+            opdracht.afgewerkt = req.body.opdracht.afgewerkt;
+        }
+
         return opdracht.save().then(function() {
             return res.json({
                 opdracht: opdracht.toJSON()

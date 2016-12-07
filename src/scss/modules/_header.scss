@@ -7,7 +7,7 @@
 
 .navbar-light .navbar-nav  {
     float: right;
-    .nav-link {
+    .nav-link, md-menu {
         padding: 0.5em 1em;
 
         color: darken(#fff, 10%);
@@ -26,6 +26,19 @@
         &:hover {
             color: #fff;
         }
+    }
+
+
+}
+
+.dropdown-menu-item {
+    font-family: 'Source Sans Pro';
+    font-weight: 400 !important;
+    letter-spacing: 0.1rem;
+    color: lighten(#111, 10%);
+
+    &:hover {
+        cursor: pointer !important;
     }
 }
 
@@ -65,7 +78,7 @@ height:6px;
 }
 
 nav.navbar  {
-    border-bottom: 5px solid #243342;
+    border-bottom: 5px solid darken(#3F51B5, 10%) ;
 }
 /*
 .sg-multicolor {padding-left: 0em; border-radius: 0 1em 1em 0; margin-bottom: 0;}

@@ -20,38 +20,64 @@
         </ul>
 
         <!-- Show this for logged in users -->
-        <ul show-authed="true" class="nav navbar-nav pull-xs-right">
+        <ul  class="nav navbar-nav pull-xs-right">
 
-            <li class="nav-item">
+            <li class="nav-item" show-authed="student">
                 <a class="nav-link" ui-sref-active="active" ui-sref="app.opdrachten">
                     Opdrachten
                 </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item" show-authed="leraar">
                 <a class="nav-link" ui-sref-active="active" ui-sref="app.beheer-opdrachten">
                     Beheer opdrachten
                 </a>
             </li>
 
-            <li class="nav-item">
+
+            <li class="nav-item" show-authed="leraar">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.beheer-studenten">
+                    Beheer studenten
+                </a>
+            </li>
+
+            <li class="nav-item" show-authed="student">
                 <a class="nav-link" ui-sref-active="active" ui-sref="app.partituren">
                     Partituren
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" ui-sref-active="active" ui-sref="app.profile.main({ username: $ctrl.currentUser.username})">
-                    <img ng-src="{{$ctrl.currentUser.image}}" class="user-pic"/>
-                    {{ $ctrl.currentUser.username }}
-                </a>
+
+
+            <li class="nav-item" show-authed="true">
+                <md-menu md-position-mode="target-right target">
+                    <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                        {{ $ctrl.currentUser.username }}
+                        <img ng-src="{{$ctrl.currentUser.image}}" class="user-pic"/>
+
+                        <md-icon md-menu-origin md-svg-icon="call:portable-wifi-off"></md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+
+                            <div ui-sref="app.settings" class="dropdown-menu-item">
+                                <div layout="row" flex>
+                                    Account settings
+                                </div>
+                            </div>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <div class="dropdown-menu-item" ng-click="$ctrl.logout()">
+                                <div layout="row" flex>
+                                    Afmelden
+                                </div>
+                            </div>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
             </li>
-            <button class="btn btn-outline-danger" ng-click="$ctrl.logout()">
-                Log uit
-            </button>
 
         </ul>
-
 
     </div>
 </nav>

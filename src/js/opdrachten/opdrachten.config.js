@@ -10,7 +10,7 @@ function OpdrachtenConfig($stateProvider) {
             title: 'Opdrachten',
             resolve: {
                 auth: function(User) {
-                    return User.ensureAuthIs(true);
+                    return User.ensureAuthIs(true) && User.ensureIsStudent();
                 }
             }
         });
