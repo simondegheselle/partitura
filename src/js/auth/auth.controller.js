@@ -10,7 +10,7 @@ class AuthCtrl {
 
   submitForm() {
     this.isSubmitting = true;
-    this._User.attemptAuth('login', this.formData).then(
+    this._User.login(this.formData).then(
       (res) => {
           if (res.data.user.type === 'leraar') {
               this._$state.go('app.beheer-opdrachten');

@@ -1,17 +1,17 @@
 <div class="beheer-opdrachten-page page">
     <div class="container page">
-        <div class="row">
+        <div class="student-toevoegen row">
             <md-button class="pull-right md-primary md-raised opdracht-toevoegen-btn" ng-click="$ctrl.showBewerken($event, 'Toevoegen')">
                 Nieuwe student
             </md-button>
         </div>
         <div class="studenten">
             <md-list>
-                <md-list-item ng-repeat="student in studenten" ng-click="goToPerson(person.name, $event)" class="noright">
-                    <img alt="{{ student.username }}" ng-src="{{ student.img }}" class="md-avatar"/>
+                <md-list-item ng-repeat="student in $ctrl.studenten" class="noright">
                     <p>{{ student.username }}</p>
-                    <md-icon ng-click="doSecondaryAction($event)"><i class="material-icons">mode_edit</i></md-icon>
-                    <md-icon  ng-click="doSecondaryAction($event)" md-svg-icon="communication:message"></md-icon>
+                    <md-icon ng-click="$ctrl.verwijder($event, student)">
+                        <i class="material-icons">delete</i>
+                    </md-icon>
                 </md-list-item>
             </md-list>
         </div>

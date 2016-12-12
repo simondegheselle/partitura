@@ -37,27 +37,28 @@ class BeheerStudentenCtrl {
 
     verwijderStudent(student) {
         this.isDeleting = true;
-        /*this._User.destroy(student).then(
+        this._User.destroy(student).then(
             (success) => {
                 this._$state.go('app.beheer-studenten')
                 this._$state.reload();
             },
             (err) => this._$state.go('app.beheer-studenten')
-        );*/
+        );
     }
 
 
-    showBewerken(ev, type, opdracht) {
-        /*this._$mdDialog.show({
-                controller: 'DialogCtrl as $ctrl',
-                templateUrl: 'beheer-opdrachten/beheer-opdracht-dialog.html',
+    showBewerken(ev, type, student) {
+        console.log('joe');
+        this._$mdDialog.show({
+                controller: 'BeheerStudentenDialogCtrl as $ctrl',
+                templateUrl: 'beheer-studenten/beheer-studenten-dialog.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: this._$scope.customFullscreen,
                 locals: {
                     type: type,
-                    opdracht: opdracht
+                    student: student
                 }
             })
             .then(function(answer) {
@@ -65,7 +66,7 @@ class BeheerStudentenCtrl {
                 //this._$scope.status = 'You said the information was "' + answer + '".';
             }, function() {
                 //this._$scope.status = 'You cancelled the dialog.';
-            });*/
+            });
     }
 }
 

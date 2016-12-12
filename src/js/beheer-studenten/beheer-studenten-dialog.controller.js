@@ -1,5 +1,5 @@
-class DialogCtrl {
-    constructor($mdDialog, User, $scope, $state, type, opdracht) {
+class BeheerStudentenDialogCtrl {
+    constructor($mdDialog, User, $scope, $state, type, student) {
         'ngInject';
         this._$scope = $scope;
         this._$mdDialog = $mdDialog;
@@ -7,9 +7,9 @@ class DialogCtrl {
         this._$state = $state;
         this.type = type;
         if (type == "Bewerk") {
-            this.opdracht = opdracht;
+            this.student = student;
         } else {
-            this.opdracht = {
+            this.student = {
                 naam: ''
             }
         }
@@ -29,8 +29,11 @@ class DialogCtrl {
     submit() {
         this.isSubmitting = true;
         if (this.type == 'Toevoegen') {
-            this._Opdrachten.create(this.opdracht).then(
-                (nieuweOpdracht) => {
+            this.student.type = 'student';
+            console.log(this.student);
+            this._User.registreer(this.student).then(
+                (nieuweStudent) => {
+                    console.log('Nieuwe student aangemaakt');
                     this.hide();
                     this._$state.reload();
                 },
@@ -38,25 +41,9 @@ class DialogCtrl {
                     this.isSubmitting = false;
                     this.errors = err.data.errors;
                 }
-
-            )
-        }
-
-        if (this.type == "Bewerk") {
-            this._Opdrachten.update(this.opdracht).then(
-                (nieuweOpdracht) => {
-                    this.hide();
-                    this._$state.reload();
-                },
-
-                (err) => {
-                    this.isSubmitting = false;
-                    this.errors = err.data.errors;
-                }
-
             )
         }
     };
 }
 
-export default DialogCtrl;
+export default BeheerStudentenDialogCtrl;
