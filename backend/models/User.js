@@ -48,6 +48,7 @@ UserSchema.methods.toAuthJSON = function(){
 
 UserSchema.methods.toJSON = function(){
   return {
+    id: this._id,
     username: this.username,
     type: this.type,
     image: this.image || 'https://static.productionready.io/images/smiley-cyrus.jpg',

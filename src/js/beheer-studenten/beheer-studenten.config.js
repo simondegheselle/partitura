@@ -11,7 +11,7 @@ function BeheerStudentenConfig($stateProvider) {
             resolve: {
                 auth: function(User) {
                     return User.ensureAuthIs(true) && User.ensureIsLeraar();
-                }
+                }            
             }
         })
 };

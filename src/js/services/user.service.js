@@ -9,20 +9,24 @@ export default class User {
         this._$q = $q;
 
         this.current = null;
-
+        this.selectedStudent = null;
     }
-    
+
     getStudenten() {
         return this._$http({
-            url: this._AppConstants.api + '/users',
+            url: this._AppConstants.api + '/',
             method: 'GET',
-        }).then((res) => res.data.users);
+        }).then((res) => {
+            console.log(res.data.users);
+            return res.data.users.filter(function(element) {
+                return element.type === 'student';
+            });
+        });
     }
 
-    attemptAuth(type, credentials) {
-        let route = (type === 'login') ? '/login' : '';
+    login(credentials) {
         return this._$http({
-            url: this._AppConstants.api + '/users' + route,
+            url: this._AppConstants.api + '/users/login',
             method: 'POST',
             data: {
                 user: credentials
@@ -31,6 +35,20 @@ export default class User {
             (res) => {
                 this._JWT.save(res.data.user.token);
                 this.current = res.data.user;
+                return res;
+            }
+        );
+    }
+
+    registreer(credentials) {
+        return this._$http({
+            url: this._AppConstants.api + '/users',
+            method: 'POST',
+            data: {
+                user: credentials
+            }
+        }).then(
+            (res) => {
                 return res;
             }
         );
@@ -147,5 +165,17 @@ export default class User {
             }
         });
         return deferred.promise;
+    }
+
+    destroy(student) {
+        console.log(student);
+        return this._$http({
+            url: this._AppConstants.api + '/users/' + student.id,
+            method: 'DELETE'
+        });
+    }
+
+    selectStudent(student) {
+        this.selectedStudent = student;
     }
 }
