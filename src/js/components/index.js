@@ -28,4 +28,7 @@ componentsModule.component('articleList', ArticleList);
 import ListPagination from './article-helpers/list-pagination.component';
 componentsModule.component('listPagination', ListPagination);
 
+import ListStudent from './beheer-helpers/student-selectlist.component';
+componentsModule.component('listStudent', ListStudent);
+
 export default componentsModule;

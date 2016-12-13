@@ -1,5 +1,5 @@
 class BeheerOpdrachtenCtrl {
-    constructor(Opdrachten, opdracht, $state, $mdDialog, $scope) {
+    constructor(User, Opdrachten, opdracht, $state, $mdDialog, $scope) {
         'ngInject';
 
         this._Opdrachten = Opdrachten;
@@ -12,24 +12,27 @@ class BeheerOpdrachtenCtrl {
         this.titel = $state.current.title;
         this.bewerkType = $state.current.name.replace('app.', '');
 
-        Opdrachten
-            .getAll()
-            .then(
-                (opdrachten) => {
-                    this.opdrachtenLoaded = true;
+        this.selectedStudent = User.selectedStudent;
 
-                    this.opdrachten = opdrachten.map(function(element) {
-                        element.deadline = new Date(element.deadline);
-                        return element;
-                    });
-                }
-            );
+
+        $scope.$watch('$ctrl.selectedStudent', (newval) => {
+            Opdrachten
+                .getAll(this.selectedStudent)
+                .then(
+                    (opdrachten) => {
+                        this.opdrachten = opdrachten.map(function(element) {
+                            element.deadline = new Date(element.deadline);
+                            return element;
+                        });
+                    }
+                );
+        });
+
 
 
     }
 
     verwijder(ev, opdracht) {
-        console.log('Hello');
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = this._$mdDialog.confirm()
             .title('Ben je zeker dat je deze opdracht wilt verwijderen')
@@ -67,7 +70,8 @@ class BeheerOpdrachtenCtrl {
                 fullscreen: this._$scope.customFullscreen,
                 locals: {
                     type: type,
-                    opdracht: opdracht
+                    opdracht: opdracht,
+                    selectedStudent: this.selectedStudent
                 }
             })
             .then(function(answer) {

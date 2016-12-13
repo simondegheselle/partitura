@@ -5,11 +5,20 @@ export default class Opdrachten {
         this._$http = $http;
     }
 
-    getAll() {
+    getAll(user) {
         return this._$http({
             url: this._AppConstants.api + '/opdrachten',
-            method: 'GET',
-        }).then((res) => res.data.opdrachten);
+            method: 'GET'
+        }).then((res) => {
+            let opdrachten = [];
+            for (var i = 0 ; i < res.data.opdrachten.length; i++) {
+                let value = res.data.opdrachten[i];
+                if (value.user === user.id) {
+                    opdrachten.push(value);
+                }
+            }
+            return opdrachten;
+        });
     }
 
 

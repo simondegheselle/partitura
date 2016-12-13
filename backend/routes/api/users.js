@@ -4,6 +4,34 @@ var passport = require('passport');
 var User = mongoose.model('User');
 var auth = require('../auth');
 
+
+router.param('user', function(req, res, next, id) {
+    User.findOne({
+            _id: id
+        })
+        .then(function(user) {
+            if (!user) {
+                return res.sendStatus(404);
+            }
+
+            req.body.user = user;
+
+            return next();
+        }).catch(next);
+});
+
+
+router.delete('/users/:user', auth.optional, function(req, res, next) {
+    User.findOne({
+        _id: req.body.user.id
+    }).then(function(user) {
+        return user.remove().then(function() {
+            return res.sendStatus(204);
+        }).catch(next);
+    });
+});
+
+
 router.get('/user', auth.required, function(req, res, next) {
     User.findById(req.payload.id).then(function(user) {
         if (!user) {
@@ -109,32 +137,6 @@ router.post('/users', function(req, res, next) {
             user: user.toAuthJSON()
         });
     }).catch(next);
-});
-
-router.param('user', function(req, res, next, id) {
-    User.findOne({
-            _id: id
-        })
-        .then(function(user) {
-            if (!user) {
-                return res.sendStatus(404);
-            }
-
-            req.body.user = user;
-
-            return next();
-        }).catch(next);
-});
-
-
-router.delete('/:user', auth.optional, function(req, res, next) {
-    User.findOne({
-        _id: req.body.user.id
-    }).then(function(user) {
-        return user.remove().then(function() {
-            return res.sendStatus(204);
-        }).catch(next);
-    });
 });
 
 

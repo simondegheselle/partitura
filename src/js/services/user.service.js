@@ -9,7 +9,7 @@ export default class User {
         this._$q = $q;
 
         this.current = null;
-
+        this.selectedStudent = null;
     }
 
     getStudenten() {
@@ -173,5 +173,9 @@ export default class User {
             url: this._AppConstants.api + '/users/' + student.id,
             method: 'DELETE'
         });
+    }
+
+    selectStudent(student) {
+        this.selectedStudent = student;
     }
 }
