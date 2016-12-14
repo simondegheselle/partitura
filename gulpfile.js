@@ -78,7 +78,7 @@ gulp.task('views', function() {
 
 gulp.task('serveprod', function() {
   connect.server({
-    root: '/Users/simondegheselle/Documents/2016-2017/Web%20Apps/partitura/',
+    root: '/Users/simondegheselle/Documents/2016-2017/Web%20Apps/partitura/build/',
     port: process.env.PORT || 5000, // localhost:5000
     livereload: false
   });
