@@ -9,6 +9,7 @@ var rename        = require('gulp-rename');
 var templateCache = require('gulp-angular-templatecache');
 var uglify        = require('gulp-uglify');
 var merge         = require('merge-stream');
+var connect = require('gulp-connect');
 var image = require('gulp-image');
 var sass = require('gulp-sass');
 
@@ -75,32 +76,17 @@ gulp.task('views', function() {
       .pipe(gulp.dest('./src/js/config/'));
 });
 
+gulp.task('serveprod', function() {
+  connect.server({
+    root: '/Users/simondegheselle/Documents/2016-2017/Web%20Apps/partitura/',
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
+});
 // This task is used for building production ready
 // minified JS/CSS files into the dist/ folder
-gulp.task('build', ['html', 'styles'], function() {
-  var html = gulp.src("build/index.html")
-                 .pipe(gulp.dest('./dist/'));
+gulp.task('build', ['html', 'styles', 'serveprod']);
 
-  var js = gulp.src("build/main.js")
-               .pipe(uglify())
-               .pipe(gulp.dest('./dist/'));
 
-  return merge(html,js);
-});
 
-gulp.task('default', ['html', 'styles'], function() {
-
-  browserSync.init(['./build/**/**.**'], {
-    server: "./build",
-    port: 4000,
-    notify: false,
-    ui: {
-      port: 4001
-    }
-  });
-
-  gulp.watch("src/index.html", ['html']);
-  gulp.watch(viewFiles, ['views']);
-  gulp.watch(jsFiles, ['browserify']);
-  gulp.watch("src/scss/**/*.scss", ['styles']);
-});
+gulp.task('default', ['html', 'styles', 'serveprod']);
