@@ -14,12 +14,6 @@ md-dialog.form-bewerk-opdracht {
 	}
 }
 
-.opdracht-toevoegen-btn {
-	float: right;
-	background-color: #388E3C!important;
-	padding-left: 1em !important;
-	padding-right: 1em !important;
-}
 
 .opdracht-wrapper {
 
@@ -139,14 +133,13 @@ md-dialog.form-bewerk-opdracht {
 
 .info-box {
 	margin-top: 2em;
-	background: lighten(#eee, 1%);
-
+	color:#fff;
 	span {
 		text-align: center;
 		display: block;
 		font-weight: bold;
-		padding-top: 12em;
-		padding-bottom: 12em;
+		padding-top: 6em;
+		padding-bottom: 6em;
 		margin: 0 auto;
 	}
 }

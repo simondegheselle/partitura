@@ -11,15 +11,14 @@ import './config/app.templates';
 import './layout';
 import './components';
 import './home';
-import './profile';
-import './article';
 import './services';
 import './auth';
 import './settings';
-import './editor';
 import './opdrachten';
 import './beheer-opdrachten';
 import './beheer-studenten';
+import './beheer-partituren';
+import './partituren';
 
 
 // Create and bootstrap application
@@ -30,15 +29,14 @@ const requires = [
   'app.layout',
   'app.components',
   'app.home',
-  'app.profile',
-  'app.article',
   'app.services',
   'app.auth',
   'app.settings',
-  'app.editor',
   'app.opdrachten',
   'app.beheer-opdrachten',
-  'app.beheer-studenten'
+  'app.beheer-studenten',
+  'app.beheer-partituren',
+  'app.partituren'
 ];
 
 // Mount on window for testing

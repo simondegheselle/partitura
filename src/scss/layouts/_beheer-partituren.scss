@@ -1,0 +1,27 @@
+.bibliotheek {
+	padding-left: 1em;
+	background: #32408f;
+	color: #fff;
+	padding: 0.5em;
+	margin-bottom: -1em;
+}
+
+.partituren {
+	margin-top: 1em;
+	.heading {
+		margin-bottom: 1em;
+		color: #fff;
+		padding-left: 1em;
+	}
+}
+.partituur-wrapper {
+	background: #fff;
+	display: block;
+	width: 100%;
+	padding:1em 0em;
+	margin-bottom: 0.5em;
+
+	.partituur-actions {
+		float: right;
+	}
+}

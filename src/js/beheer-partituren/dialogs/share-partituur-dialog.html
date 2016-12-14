@@ -1,0 +1,31 @@
+<md-dialog class="form-bewerk-opdracht">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Deel partituur met</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+                    <md-icon md-svg-src="/assets/img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <md-list>
+                <md-list-item ng-repeat="student in $ctrl.studenten">
+                    <p>
+                        {{ student.username }}
+                    </p>
+                    <md-checkbox class="md-secondary" ng-model="student.gedeeld"></md-checkbox>
+                </md-list-item>
+            </md-list>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+
+            <md-button class="md-primary md-raised" ng-click="$ctrl.submit()">
+                Bevestig
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

@@ -16,8 +16,9 @@ class OpdrachtenCtrl {
                 .getAll(this._User.current)
                 .then(
                     (opdrachten) => {
+                        console.log(opdrachten);
                         this.opdrachten = opdrachten.filter(function(val) {
-                            return val.afgewerkt === false || val.afgewerkt === null;
+                            return val.afgewerkt === false || !val.hasOwnProperty("afgewerkt");
                         });
                     }
                 );

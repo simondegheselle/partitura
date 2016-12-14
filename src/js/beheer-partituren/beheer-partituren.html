@@ -1,0 +1,29 @@
+<div class="beheer-partituren-page page">
+    <div class="container page">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="bibliotheek" ng-click="$ctrl.openBib()">
+                    Bibliotheek
+                </div>
+                <div class="select-student-list">
+                    <list-student selected-user="$ctrl.selectedUser"></list-student>
+                </div>
+            </div>
+
+            <div class="partituren-wrapper col-md-9" ng-hide="$ctrl.selectedStudent === null || $ctrl.partituren.length === 0">
+
+                <beheer-partituren-edit-view partituren="$ctrl.partituren" ng-show="$ctrl.isEditView()"></beheer-partituren-edit-view>
+                <beheer-partituren-read-view partituren="$ctrl.partituren" ng-show="!$ctrl.isEditView()"></beheer-partituren-read-view>
+
+            </div>
+            <div class="col-md-9 info-box" ng-show="$ctrl.selectedStudent === null" id="kiesUser">
+                <span>Kies een user</span>
+            </div>
+            <div class="col-md-9 info-box" ng-show="$ctrl.partituren.length === 0">
+                <span>Deze gebruiker heeft geen partiruren</span>
+            </div>
+        </div>
+
+    </div>
+</div>

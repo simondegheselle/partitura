@@ -4,7 +4,7 @@
 		Selecteer student
 	</div>
     <div ng-repeat="student in $ctrl.studenten">
-        <div class="student" ng-click="$ctrl.selectStudent(student)" ng-class="student.id === $ctrl.selectedStudent.id ? 'selected' : 'not-selected'">
+        <div class="student" ng-click="$ctrl.selectStudent(student)" ng-class="student.id === $ctrl.selectedUser.id ? 'selected' : 'not-selected'">
         	<span >{{student.username}}</span>
         </div>
     </div>

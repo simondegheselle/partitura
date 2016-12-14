@@ -20,7 +20,7 @@
         </ul>
 
         <!-- Show this for logged in users -->
-        <ul  class="nav navbar-nav pull-xs-right">
+        <ul class="nav navbar-nav pull-xs-right">
 
             <li class="nav-item" show-authed="student">
                 <a class="nav-link" ui-sref-active="active" ui-sref="app.opdrachten">
@@ -34,10 +34,9 @@
                 </a>
             </li>
 
-
             <li class="nav-item" show-authed="leraar">
-                <a class="nav-link" ui-sref-active="active" ui-sref="app.beheer-studenten">
-                    Beheer studenten
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.beheer-partituren">
+                    Beheer partituren
                 </a>
             </li>
 
@@ -47,7 +46,11 @@
                 </a>
             </li>
 
-
+            <li class="nav-item" show-authed="leraar">
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.beheer-studenten">
+                    Beheer studenten
+                </a>
+            </li>
 
             <li class="nav-item" show-authed="true">
                 <md-menu md-position-mode="target-right target">
