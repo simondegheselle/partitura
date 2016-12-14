@@ -5,8 +5,7 @@
   "author": "Thinkster",
   "scripts": {
     "start": "node build/main.js",
-    "test": "mocha",
-    "postinstall": "bower install && grunt build"
+    "test": "mocha"
   },
   "license": "MIT",
   "dependencies": {
