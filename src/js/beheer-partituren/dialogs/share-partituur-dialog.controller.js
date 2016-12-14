@@ -44,7 +44,7 @@ class SharePartituurDialogCtrl {
         });
 
         this.partituur.gedeeldMet = sharedStudenten;
-        this._Partituren.update(this.partituur).then(
+        this._Partituren.updateSharing(this.partituur).then(
             (nieuwePartituur) => {
                 this.hide();
                 this._$state.reload();
