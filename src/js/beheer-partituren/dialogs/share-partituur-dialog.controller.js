@@ -33,7 +33,9 @@ class SharePartituurDialogCtrl {
         this._$mdDialog.cancel();
     };
 
-
+    fileNameChanged() {
+        this.partituur.filename = file.name;
+    }
 
     submit() {
         this.isSubmitting = true;

@@ -77,7 +77,7 @@ gulp.task('views', function() {
 
 // This task is used for building production ready
 // minified JS/CSS files into the dist/ folder
-gulp.task('build', ['html', 'styles'], function() {
+gulp.task('build', ['html', 'styles', 'browserify'], function() {
   var html = gulp.src("build/index.html")
                  .pipe(gulp.dest('./dist/'));
 
@@ -88,7 +88,7 @@ gulp.task('build', ['html', 'styles'], function() {
   return merge(html,js);
 });
 
-gulp.task('default', ['html', 'styles'], function() {
+gulp.task('default', ['html', 'styles', 'browserify'], function() {
 
   browserSync.init(['./build/**/**.**'], {
     server: "./build",

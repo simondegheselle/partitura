@@ -2,17 +2,6 @@
 	padding-top: 1.5em;
 	padding-bottom: 4em;
 }
-
-.content-wrapper {
-  flex: 1;
-}
-
-
-html {
-  height: 100% !important;
-}
-body {
-  min-height: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
+.hidden {
+	display: none;
 }

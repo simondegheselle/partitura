@@ -32,26 +32,6 @@ class PartituurActionsCtrl {
         );
     };
 
-	showBewerken(ev, type) {
-        this._$mdDialog.show({
-                controller: 'BeheerPartiturenDialogCtrl as $ctrl',
-                templateUrl: 'beheer-partituren/dialogs/beheer-partituren-dialog.html',
-                parent: angular.element(document.body),
-                targetEvent: ev,
-                clickOutsideToClose: true,
-                fullscreen: this._$scope.customFullscreen,
-                locals: {
-                    type: 'Bewerk',
-                    partituur: this.partituur
-                }
-            })
-            .then(function(answer) {
-
-                //this._$scope.status = 'You said the information was "' + answer + '".';
-            }, function() {
-                //this._$scope.status = 'You cancelled the dialog.';
-            });
-    };
 
 	showShare(ev) {
 		this._$mdDialog.show({

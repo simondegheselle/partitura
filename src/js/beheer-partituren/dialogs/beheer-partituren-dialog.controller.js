@@ -1,5 +1,5 @@
 class BeheerPartiturenDialogCtrl {
-    constructor(User, $mdDialog, $scope, Partituren, $state, type, partituur, Upload, $window) {
+    constructor(User, $mdDialog, $scope, Partituren, $state, type, partituur, Upload) {
         'ngInject';
         this._$scope = $scope;
         this._$mdDialog = $mdDialog;
@@ -8,10 +8,9 @@ class BeheerPartiturenDialogCtrl {
         this.type = type;
         this._User = User;
         this._Upload = Upload
-        this._$window = $window;
+        console.log(this.file);
         if (type == "Bewerk") {
             this.partituur = partituur;
-
         } else {
             this.partituur = {
                 naam: ''
@@ -30,11 +29,10 @@ class BeheerPartiturenDialogCtrl {
             if (resp.data.error_code === 0) { //validate success
                 return resp;
             } else {
-                this._$window.alert('an error occured');
-            }
+                console.log('error');
+                        }
         }, (resp) => { //catch error
             console.log('Error status: ' + resp.status);
-            this._$window.alert('Error status: ' + resp.status);
         }, (evt) => {
             console.log(evt);
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
@@ -50,6 +48,11 @@ class BeheerPartiturenDialogCtrl {
     cancel() {
         this._$mdDialog.cancel();
     };
+
+    fileNameChanged() {
+        this.partituur.filename = this.file.name;
+        console.log('filename changes');
+    }
 
 
 

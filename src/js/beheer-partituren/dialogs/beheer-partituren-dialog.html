@@ -22,8 +22,13 @@
                         <input class="form-control" ng-model="$ctrl.partituur.naam" type="text" name="naam" required/>
                     </fieldset>
                 </fieldset>
+                <fieldset>
+                    <p>Geselecteerd bestand: {{$ctrl.partituur.filename}}</p>
+                    <label for="files" class="btn btn-primary">Nieuw bestand</label>
+                </fieldset>
 
-                <input type="file" ngf-select ng-model="$ctrl.file" name="file" ngf-max-size="20MB" />
+
+                <input ng-change="$ctrl.fileNameChanged()" type="file" ngf-select ng-model="$ctrl.file" name="file" id="files" class="hidden" ngf-max-size="20MB" />
                 <i ng-show="$ctrl.file.$error.required">*required</i><br>
                 <i ng-show="$ctrl.file.$error.maxSize">File too large
                     {{$ctrl.file.size / 1000000|number:1}}MB: max 20M</i>
