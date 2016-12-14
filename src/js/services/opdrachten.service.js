@@ -1,8 +1,9 @@
 export default class Opdrachten {
-    constructor(JWT, AppConstants, $http, $q) {
+    constructor(JWT, User, AppConstants, $http, $q) {
         'ngInject';
         this._AppConstants = AppConstants;
         this._$http = $http;
+        this._User = User;
     }
 
     getAll(user) {
@@ -46,6 +47,7 @@ export default class Opdrachten {
     }
 
     create(opdracht) {
+        opdracht.user = this._User.selectedUser;
         let request = {};
         request.url = `${this._AppConstants.api}/opdrachten`;
         request.method = 'POST';

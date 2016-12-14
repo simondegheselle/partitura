@@ -1,24 +1,24 @@
 class BeheerOpdrachtenCtrl {
-    constructor(User, Opdrachten, opdracht, $state, $mdDialog, $scope) {
+    constructor(User, Opdrachten, $state, $mdDialog, $scope) {
         'ngInject';
 
         this._Opdrachten = Opdrachten;
         this._$state = $state;
         this._$scope = $scope;
-        this._opdracht = opdracht;
         this._$mdDialog = $mdDialog;
-
 
         this.titel = $state.current.title;
         this.bewerkType = $state.current.name.replace('app.', '');
+        if (User.selectedUser === User.current) {
+            User.selectUser(null);
+        }
+        this.selectedUser = User.selectedUser;
 
-        this.selectedStudent = User.selectedStudent;
 
-
-        $scope.$watch('$ctrl.selectedStudent', (newval) => {
+        $scope.$watch('$ctrl.selectedUser', (newval) => {
             if (newval !== null) {
                 Opdrachten
-                    .getAll(this.selectedStudent)
+                    .getAll(this.selectedUser)
                     .then(
                         (opdrachten) => {
                             this.opdrachten = opdrachten.map(function(element) {
@@ -69,8 +69,7 @@ class BeheerOpdrachtenCtrl {
                 fullscreen: this._$scope.customFullscreen,
                 locals: {
                     type: type,
-                    opdracht: opdracht,
-                    selectedStudent: this.selectedStudent
+                    opdracht: opdracht
                 }
             })
             .then(function(answer) {

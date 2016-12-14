@@ -9,7 +9,7 @@ export default class User {
         this._$q = $q;
 
         this.current = null;
-        this.selectedStudent = null;
+        this.selectedUser = null;
     }
 
     getStudenten() {
@@ -17,7 +17,6 @@ export default class User {
             url: this._AppConstants.api + '/',
             method: 'GET',
         }).then((res) => {
-            console.log(res.data.users);
             return res.data.users.filter(function(element) {
                 return element.type === 'student';
             });
@@ -175,7 +174,7 @@ export default class User {
         });
     }
 
-    selectStudent(student) {
-        this.selectedStudent = student;
+    selectUser(user) {
+        this.selectedUser = user;
     }
 }

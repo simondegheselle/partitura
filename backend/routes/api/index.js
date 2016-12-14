@@ -2,6 +2,7 @@ var router = require('express').Router();
 
 router.use('/', require('./users'));
 router.use('/opdrachten', require('./opdrachten'));
+router.use('/partituren', require('./partituren'));
 
 router.use(function(err, req, res, next){
   if(err.name === 'ValidationError'){

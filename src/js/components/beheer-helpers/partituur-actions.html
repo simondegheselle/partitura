@@ -1,0 +1,17 @@
+<span class="partituur-actions">
+    <button class="btn btn-sm btn-default" ng-class="{disabled: $ctrl.isDeleting}" ng-click="$ctrl.showShare($event)">
+        <i class="ion-share"></i>
+        Delen
+    </button>
+
+    <button class="btn btn-sm btn-primary" ng-click="$ctrl.showBewerken($event)">
+        <i class="ion-edit"></i>
+        Bewerk
+    </button>
+
+    <button class="btn btn-sm btn-outline-danger" ng-class="{disabled: $ctrl.isDeleting}" ng-click="$ctrl.verwijderPartituur($event)">
+        <i class="ion-trash-a"></i>
+        Verwijder
+    </button>
+
+</span>

@@ -1,5 +1,5 @@
 class DialogCtrl {
-    constructor(User, $mdDialog, $scope, Opdrachten, $state, type, opdracht, selectedStudent) {
+    constructor(User, $mdDialog, $scope, Opdrachten, $state, type, opdracht) {
         'ngInject';
         this._$scope = $scope;
         this._$mdDialog = $mdDialog;
@@ -7,8 +7,6 @@ class DialogCtrl {
         this._$state = $state;
         this.type = type;
         this._User = User;
-        this.selectedStudent = selectedStudent;
-        console.log(selectedStudent);
         if (type == "Bewerk") {
             this.opdracht = opdracht;
         } else {
@@ -31,7 +29,6 @@ class DialogCtrl {
     submit() {
         this.isSubmitting = true;
         if (this.type == 'Toevoegen') {
-            this.opdracht.user = this.selectedStudent;
             this._Opdrachten.create(this.opdracht).then(
                 (nieuweOpdracht) => {
                     this.hide();

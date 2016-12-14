@@ -10,22 +10,19 @@ class StudentSelectListCtrl {
                     this.studenten = studenten;
                 }
             );
-
-
-        console.log(this.studenten);
-		console.log('selected student: ' + this.selectedStudent);
+		console.log('selected student: ' + this.selectedUser);
     }
 
     selectStudent(student) {
 		console.log('selecting student: ' + student);
-        this.selectedStudent = student;
-        this._User.selectStudent(student);
+        this.selectedUser = student;
+        this._User.selectUser(student);
     }
 }
 
 let StudentSelectList = {
 	bindings: {
-      selectedStudent: '='
+      selectedUser: '='
     },
     controller: StudentSelectListCtrl,
     templateUrl: 'components/beheer-helpers/student-selectlist.html'

@@ -4,18 +4,17 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="select-student-list">
-                    <list-student selected-student="$ctrl.selectedStudent"></list-student>
+                    <list-student selected-user="$ctrl.selectedUser"></list-student>
                 </div>
             </div>
             <div class="opdrachten-wrapper col-md-9">
                 <div class="row">
-                    <md-button class="pull-right md-primary md-raised opdracht-toevoegen-btn" ng-click="$ctrl.showBewerken($event, 'Toevoegen')">
+                    <md-button class="pull-right md-primary md-raised opdracht-toevoegen-btn toevoegen-btn" ng-click="$ctrl.showBewerken($event, 'Toevoegen')">
                         Nieuwe opdracht
                     </md-button>
                 </div>
-                <div class="opdrachten" ng-hide="$ctrl.selectedStudent === null">
-                    <div class="opdracht-wrapper col-md-4" ng-repeat="opdracht in $ctrl.opdrachten" ng-show="$ctrl.opdrachten.length > 0">
-
+                <div class="opdrachten" ng-hide="$ctrl.selectedUser === null">
+                    <div class="opdracht-wrapper col-md-4" ng-repeat="opdracht in $ctrl.opdrachten"  ng-show="$ctrl.opdrachten.length > 0">
                         <div class="opdracht">
                             <div class="opdracht-meta">
                                 <div class="deadline">
@@ -35,10 +34,12 @@
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
-            <div class="col-md-9 info-box" ng-show="$ctrl.selectedStudent === null" id="kiesUser">
+            <div class="col-md-9 info-box" ng-show="$ctrl.selectedUser === null" id="kiesUser">
                 <span>Kies een user</span>
             </div>
             <div class="col-md-9 info-box" ng-show="$ctrl.opdrachten.length === 0">
