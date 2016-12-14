@@ -7,20 +7,15 @@ class SettingsCtrl {
 
     this.formData = {
       email: User.current.email,
-      bio: User.current.bio,
-      image: User.current.image,
       username: User.current.username
     }
-
-    this.logout = User.logout.bind(User);
-
   }
 
   submitForm() {
     this.isSubmitting = true;
     this._User.update(this.formData).then(
       (user) => {
-        this._$state.go('app.profile.main', {username:user.username})
+        this._$state.reload();
       },
       (err) => {
         this.isSubmitting = false;

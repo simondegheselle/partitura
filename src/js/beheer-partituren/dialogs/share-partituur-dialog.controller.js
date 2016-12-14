@@ -33,7 +33,9 @@ class SharePartituurDialogCtrl {
         this._$mdDialog.cancel();
     };
 
-
+    fileNameChanged() {
+        this.partituur.filename = file.name;
+    }
 
     submit() {
         this.isSubmitting = true;
@@ -44,7 +46,7 @@ class SharePartituurDialogCtrl {
         });
 
         this.partituur.gedeeldMet = sharedStudenten;
-        this._Partituren.update(this.partituur).then(
+        this._Partituren.updateSharing(this.partituur).then(
             (nieuwePartituur) => {
                 this.hide();
                 this._$state.reload();

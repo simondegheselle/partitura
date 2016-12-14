@@ -60,17 +60,28 @@ router.put('/', auth.required, function(req, res, next) {
             partituur.naam = req.body.partituur.naam;
         }
 
-        if (typeof req.body.partituur.gedeeldMet !== 'undefined') {
+        if (typeof req.body.partituur.filename !== 'undefined') {
+            partituur.filename = req.body.partituur.filename;
+        }
 
-            /*let gedeeldMet = req.body.partituur.gedeeldMet;
-            let newGedeeldMet = [];
-            for (var i = 0; i < gedeeldMet.length; i++) {
-            	User.findOne({
-                    _id: gedeeldMet[i].id
-                }).then(function(user) {
-                    partituur.gedeeldMet.push(user);
-                });
-            }*/
+
+
+        return partituur.save().then(function() {
+            return res.json({
+                partituur: partituur.toJSON()
+            });
+        });
+    }).catch(next);
+});
+
+router.put('/sharing', auth.required, function(req, res, next) {
+
+    Partituur.findById(req.body.partituur.id).then(function(partituur) {
+        if (!partituur) {
+            return res.sendStatus(401);
+        }
+
+        if (typeof req.body.partituur.gedeeldMet !== 'undefined') {
             partituur.gedeeldMet = req.body.partituur.gedeeldMet.map(value => {
                 return value.id;
             });
@@ -83,6 +94,8 @@ router.put('/', auth.required, function(req, res, next) {
         });
     }).catch(next);
 });
+
+
 
 // verwijder vriendje :'(
 router.delete('/:partituur', auth.required, function(req, res, next) {

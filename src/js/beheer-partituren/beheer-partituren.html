@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <div class="partituren-wrapper col-md-9" ng-hide="$ctrl.selectedStudent === null || $ctrl.partituren.length === 0">
+            <div class="partituren-wrapper col-md-9">
 
                 <beheer-partituren-edit-view partituren="$ctrl.partituren" ng-show="$ctrl.isEditView()"></beheer-partituren-edit-view>
                 <beheer-partituren-read-view partituren="$ctrl.partituren" ng-show="!$ctrl.isEditView()"></beheer-partituren-read-view>

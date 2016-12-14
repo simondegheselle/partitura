@@ -69,4 +69,18 @@ export default class Partituren {
             }
         )
     }
+
+    updateSharing(partituur) {
+        return this._$http({
+            url: this._AppConstants.api + '/partituren/sharing',
+            method: 'PUT',
+            data: {
+                partituur: partituur
+            }
+        }).then(
+            (res) => {
+                return res.data.partituur;
+            }
+        )
+    }
 }

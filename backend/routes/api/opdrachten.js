@@ -28,6 +28,13 @@ router.post('/', auth.required, function(req, res, next) {
         });
     }
 
+    if (!req.body.opdracht.deadline) {
+        return res.status(422).json({
+            errors: {
+                naam: "gelieve een datum in te geven."
+            }
+        });
+    }
 
     User.findById(req.body.opdracht.user.id).then(function(user) {
         if (!user) {
