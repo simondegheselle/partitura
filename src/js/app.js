@@ -16,7 +16,6 @@ import './article';
 import './services';
 import './auth';
 import './settings';
-import './editor';
 import './opdrachten';
 import './beheer-opdrachten';
 import './beheer-studenten';
@@ -35,7 +34,6 @@ const requires = [
   'app.services',
   'app.auth',
   'app.settings',
-  'app.editor',
   'app.opdrachten',
   'app.beheer-opdrachten',
   'app.beheer-studenten'

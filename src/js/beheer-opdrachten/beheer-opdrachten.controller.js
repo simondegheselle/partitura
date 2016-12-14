@@ -16,20 +16,19 @@ class BeheerOpdrachtenCtrl {
 
 
         $scope.$watch('$ctrl.selectedStudent', (newval) => {
-            Opdrachten
-                .getAll(this.selectedStudent)
-                .then(
-                    (opdrachten) => {
-                        this.opdrachten = opdrachten.map(function(element) {
-                            element.deadline = new Date(element.deadline);
-                            return element;
-                        });
-                    }
-                );
+            if (newval !== null) {
+                Opdrachten
+                    .getAll(this.selectedStudent)
+                    .then(
+                        (opdrachten) => {
+                            this.opdrachten = opdrachten.map(function(element) {
+                                element.deadline = new Date(element.deadline);
+                                return element;
+                            });
+                        }
+                    );
+            }
         });
-
-
-
     }
 
     verwijder(ev, opdracht) {
