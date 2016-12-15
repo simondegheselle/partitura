@@ -2,13 +2,13 @@
 
 Muziek partiruren en opdrachten delen met elkaar
 
-backend opstarten
+## backend opstarten
 
 cd backend
 
 npm start
 
-frontend opstarten
+## frontend opstarten
 
 terug keren naar root: cd ..
 
