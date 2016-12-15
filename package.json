@@ -4,8 +4,7 @@
     "description": "Angular frontend for Conduit",
     "author": "Thinkster",
     "scripts": {
-        "start": "gulp",
-        "test": "mocha"
+        "start": "node node_modules/gulp/bin/gulp"
     },
     "license": "MIT",
     "dependencies": {
