@@ -11,11 +11,6 @@ var uglify = require('gulp-uglify');
 var merge = require('merge-stream');
 var image = require('gulp-image');
 var sass = require('gulp-sass');
-var connect = require('gulp-connect');
-
-var karma = require('gulp-karma');
-
-
 
 
 // Where our files are located
@@ -95,29 +90,14 @@ gulp.task('build', ['html', 'styles', 'browserify'], function() {
     return merge(html, js);
 });
 
-gulp.task('test', function() {
-  // Be sure to return the stream
-  // NOTE: Using the fake './foobar' so as to run the files
-  // listed in karma.conf.js INSTEAD of what was passed to
-  // gulp.src !
-  return gulp.src('./foobar')
-    .pipe(karma({
-      configFile: 'karma.conf.js',
-      action: 'run'
-    }))
-    .on('error', function(err) {
-      // Make sure failed tests cause gulp to exit non-zero
-      console.log(err);
-      this.emit('end'); //instead of erroring the stream, end it
-    });
-});
+gulp.task('default', ['html', 'styles'], function() {
 
-gulp.task('serve', function() {
-    connect.server({
-        root: 'build',
-        port: process.env.PORT || 5000,
-        livereload: process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined ? true : false,
+    browserSync.init(['./build/**/**.**'], {
+        server: "./build",
+        notify: false
     });
+    gulp.watch("src/index.html", ['html']);
+    gulp.watch(viewFiles, ['views']);
+    gulp.watch(jsFiles, ['browserify']);
+    gulp.watch("src/scss/**/*.scss", ['styles']);
 });
-
-gulp.task('default', ['html', 'styles', 'serve']);
