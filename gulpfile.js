@@ -94,7 +94,7 @@ gulp.task('build', ['html', 'styles', 'browserify'], function() {
 
 gulp.task('serve', function() {
     connect.server({
-        root: './build',
+        root: 'build',
         port: process.env.PORT || 5000,
         livereload: process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined ? true : false,
     });
