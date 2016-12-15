@@ -1,11 +1,12 @@
 class DialogCtrl {
-    constructor($mdDialog, $scope, Opdrachten, $state, type, opdracht) {
+    constructor(User, $mdDialog, $scope, Opdrachten, $state, type, opdracht) {
         'ngInject';
         this._$scope = $scope;
         this._$mdDialog = $mdDialog;
         this._Opdrachten = Opdrachten;
         this._$state = $state;
         this.type = type;
+        this._User = User;
         if (type == "Bewerk") {
             this.opdracht = opdracht;
         } else {
@@ -21,7 +22,6 @@ class DialogCtrl {
 
     cancel() {
         this._$mdDialog.cancel();
-        console.log("cancel");
     };
 
 

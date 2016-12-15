@@ -1,32 +1,49 @@
 <div class="beheer-opdrachten-page page">
     <div class="container page">
-        <div class="row">
-            <md-button class="pull-right md-primary md-raised opdracht-toevoegen-btn" ng-click="$ctrl.showBewerken($event, 'Toevoegen')">
-                Nieuwe opdracht
-            </md-button>
-        </div>
-        <div class="opdrachten" ng-repeat="opdracht in $ctrl.opdrachten">
-            <div class="opdracht-wrapper col-md-4">
 
-                <div class="opdracht">
-                    <div class="opdracht-meta">
-                        <div class="deadline">
-                            {{opdracht.deadline | date:'dd/MM'}}
+        <div class="row">
+            <div class="col-md-3">
+                <div class="select-student-list">
+                    <list-student selected-user="$ctrl.selectedUser"></list-student>
+                </div>
+            </div>
+            <div class="opdrachten-wrapper col-md-9">
+                <div class="row">
+                    <md-button class="pull-right md-primary md-raised opdracht-toevoegen-btn toevoegen-btn" ng-click="$ctrl.showBewerken($event, 'Toevoegen')">
+                        Nieuwe opdracht
+                    </md-button>
+                </div>
+                <div class="opdrachten" ng-hide="$ctrl.selectedUser === null">
+                    <div class="opdracht-wrapper col-md-4" ng-repeat="opdracht in $ctrl.opdrachten"  ng-show="$ctrl.opdrachten.length > 0">
+                        <div class="opdracht">
+                            <div class="opdracht-meta">
+                                <div class="deadline">
+                                    {{opdracht.deadline | date:'dd/MM'}}
+                                </div>
+                            </div>
+                            <div class="opdracht-content">
+                                <div class="opdracht-naam">
+                                    {{opdracht.naam}}
+                                </div>
+                                <div class="opdracht-beschrijving">
+                                    {{opdracht.beschrijving}}
+                                </div>
+                                <div class="bewerk">
+                                    <i class="material-icons" ng-click="$ctrl.showBewerken($event, 'Bewerk', opdracht)">mode_edit</i>
+                                    <i class="material-icons" ng-click="$ctrl.verwijder($event, opdracht)">delete</i>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="opdracht-content">
-                        <div class="opdracht-naam">
-                            {{opdracht.naam}}
-                        </div>
-                        <div class="opdracht-beschrijving">
-                            {{opdracht.beschrijving}}
-                        </div>
-                        <div class="bewerk">
-                            <i class="material-icons" ng-click="$ctrl.showBewerken($event, 'Bewerk', opdracht)">mode_edit</i>
-                            <i class="material-icons" ng-click="$ctrl.verwijder($event, opdracht)">delete</i>
-                        </div>
+
+
                     </div>
                 </div>
+            </div>
+            <div class="col-md-9 info-box" ng-show="$ctrl.selectedUser === null" id="kiesUser">
+                <span>Kies een user</span>
+            </div>
+            <div class="col-md-9 info-box" ng-show="$ctrl.opdrachten.length === 0">
+                <span>Deze user heeft geen opdrachten</span>
             </div>
         </div>
 

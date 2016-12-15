@@ -1,3 +1,33 @@
 body {
-	background: #ECF0F1;
+	background: rgba(0,0,0,0.9);
+}
+
+.select-student-list {
+	background: lighten(#eee, 1%);
+	padding-bottom: 1em;
+	margin-top: 2em;
+	.title {
+		padding: 1em;
+		font-weight: bold;
+	}
+	.student {
+		padding: 0.5em 1em;
+		outline: none;
+
+		&.selected {
+			background: #3498db;
+			color: #fff;
+			outline: none;
+
+		}
+		&:hover:not(.selected) {
+			background: darken(#eee, 10%);
+		}
+	}
+}
+
+.toevoegen-btn {
+	float: right;
+	padding-left: 1em !important;
+	padding-right: 1em !important;
 }

@@ -1,15 +1,25 @@
 export default class Opdrachten {
-    constructor(JWT, AppConstants, $http, $q) {
+    constructor(JWT, User, AppConstants, $http, $q) {
         'ngInject';
         this._AppConstants = AppConstants;
         this._$http = $http;
+        this._User = User;
     }
 
-    getAll() {
+    getAll(user) {
         return this._$http({
             url: this._AppConstants.api + '/opdrachten',
-            method: 'GET',
-        }).then((res) => res.data.opdrachten);
+            method: 'GET'
+        }).then((res) => {
+            let opdrachten = [];
+            for (var i = 0 ; i < res.data.opdrachten.length; i++) {
+                let value = res.data.opdrachten[i];
+                if (value.user === user.id) {
+                    opdrachten.push(value);
+                }
+            }
+            return opdrachten;
+        });
     }
 
 
@@ -37,6 +47,7 @@ export default class Opdrachten {
     }
 
     create(opdracht) {
+        opdracht.user = this._User.selectedUser;
         let request = {};
         request.url = `${this._AppConstants.api}/opdrachten`;
         request.method = 'POST';

@@ -10,9 +10,13 @@ class AuthCtrl {
 
   submitForm() {
     this.isSubmitting = true;
-    this._User.attemptAuth('login', this.formData).then(
+    this._User.login(this.formData).then(
       (res) => {
-        this._$state.go('app.opdrachten');
+          if (res.data.user.type === 'leraar') {
+              this._$state.go('app.beheer-opdrachten');
+          } else {
+              this._$state.go('app.opdrachten');
+          }
       },
       (err) => {
         this.isSubmitting = false;

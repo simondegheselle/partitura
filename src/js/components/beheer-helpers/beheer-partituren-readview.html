@@ -1,0 +1,23 @@
+<div class="partituren" ng-hide="$ctrl.selectedUser === null">
+	<div class="heading container">
+		<span class="col-md-4">
+			Naam
+		</span>
+		<span class="col-md-3">
+			Eigenaar
+		</span>
+	</div>
+	<div class="partituur-wrapper" ng-repeat="partituur in $ctrl.partituren" ng-show="$ctrl.partituren.length > 0">
+		<a href="http://localhost:3000/uploads/{{partituur.filename}}" target="_blank">
+			<div class="partituur container" >
+				<span class="partituur-naam col-md-4">
+					{{partituur.naam}}
+				</span>
+				<span class="partituur-eigenaar col-md-3">
+					{{partituur.eigenaar.username}}
+				</span>
+			</div>
+		</a>
+
+	</div>
+</div>

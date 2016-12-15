@@ -9,23 +9,19 @@ componentsModule.component('listErrors', ListErrors);
 import ShowAuthed from './show-authed.directive';
 componentsModule.directive('showAuthed', ShowAuthed);
 
+import ListStudent from './beheer-helpers/student-selectlist.component';
+componentsModule.component('listStudent', ListStudent);
 
-import FollowBtn from './buttons/follow-btn.component';
-componentsModule.component('followBtn', FollowBtn);
+import PartituurActions from './beheer-helpers/partituur-actions.component';
+componentsModule.component('partituurActions', PartituurActions);
 
-import ArticleMeta from './article-helpers/article-meta.component';
-componentsModule.component('articleMeta', ArticleMeta);
+import BeheerPartiturenEditView from './beheer-helpers/beheer-partituren-editview.component';
+componentsModule.component('beheerPartiturenEditView', BeheerPartiturenEditView);
 
-import FavoriteBtn from './buttons/favorite-btn.component';
-componentsModule.component('favoriteBtn', FavoriteBtn);
 
-import ArticlePreview from './article-helpers/article-preview.component';
-componentsModule.component('articlePreview', ArticlePreview);
 
-import ArticleList from './article-helpers/article-list.component';
-componentsModule.component('articleList', ArticleList);
+import BeheerPartiturenReadView from './beheer-helpers/beheer-partituren-readview.component';
+componentsModule.component('beheerPartiturenReadView', BeheerPartiturenReadView);
 
-import ListPagination from './article-helpers/list-pagination.component';
-componentsModule.component('listPagination', ListPagination);
 
 export default componentsModule;

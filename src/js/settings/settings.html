@@ -1,7 +1,7 @@
 <div class="settings-page">
   <div class="container page">
     <div class="row">
-      <div class="col-md-6 offset-md-3 col-xs-12">
+      <div class="col-md-6 offset-md-3 col-xs-12 settings">
 
         <h1 class="text-xs-center">Your Settings</h1>
 
@@ -11,26 +11,12 @@
           <fieldset ng-disabled="$ctrl.isSubmitting">
 
             <fieldset class="form-group">
-              <input class="form-control"
-                type="text"
-                placeholder="URL of profile picture"
-                ng-model="$ctrl.formData.image" />
-            </fieldset>
-
-            <fieldset class="form-group">
               <input class="form-control form-control-lg"
                 type="text"
                 placeholder="Username"
                 ng-model="$ctrl.formData.username" />
             </fieldset>
 
-            <fieldset class="form-group">
-              <textarea class="form-control form-control-lg"
-                rows="8"
-                placeholder="Short bio about you"
-                ng-model="$ctrl.formData.bio">
-              </textarea>
-            </fieldset>
 
             <fieldset class="form-group">
               <input class="form-control form-control-lg"
@@ -55,13 +41,6 @@
         </form>
 
         <!-- Line break for logout button -->
-        <hr />
-
-        <button class="btn btn-outline-danger"
-          ng-click="$ctrl.logout()">
-          Or click here to logout.
-        </button>
-
       </div>
     </div>
   </div>

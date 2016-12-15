@@ -1,0 +1,41 @@
+<md-dialog aria-label="Mango (Fruit)" class="form-bewerk-opdracht">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{$ctrl.type}}
+                    Student</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+                    <md-icon md-svg-src="/assets/img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <list-errors errors="$ctrl.errors"></list-errors>
+                <fieldset ng-disabled="$ctrl.isSubmitting">
+                    <fieldset class="form-group">
+                        <label for="username">Username</label>
+                        <input class="form-control" ng-model="$ctrl.student.username" type="text" name="username" required/>
+                    </fieldset>
+                    <fieldset>
+                        <label for="email">Email</label>
+                        <input class="form-control" ng-model="$ctrl.student.email" name="email" required />
+                    </fieldset>
+                    <fieldset>
+                        <label for="password">Paswoord</label>
+                        <input class="form-control"  type"password" ng-model="$ctrl.student.password" name="password" required />
+                    </fieldset>
+                </fieldset>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+
+            <md-button class="md-primary md-raised" ng-click="$ctrl.submit()">
+                {{$ctrl.type}}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

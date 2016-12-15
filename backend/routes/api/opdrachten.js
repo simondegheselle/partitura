@@ -6,11 +6,8 @@ var auth = require('../auth');
 
 
 // geef mij alle vriendeuh
-router.get('/', auth.optional, function(req, res, next) {
-    return Promise.all([
-        Opdracht.find().exec() /*{ user: req.payload.id }*/
-    ]).then(function(results) {
-        var opdrachten = results[0];
+router.get('/', auth.required, function(req, res, next) {
+    Opdracht.find().then(function(opdrachten) {
         return res.json({
             opdrachten: opdrachten.map(function(opdracht) {
                 return opdracht.toJSON();
@@ -31,8 +28,15 @@ router.post('/', auth.required, function(req, res, next) {
         });
     }
 
+    if (!req.body.opdracht.deadline) {
+        return res.status(422).json({
+            errors: {
+                naam: "gelieve een datum in te geven."
+            }
+        });
+    }
 
-    User.findById(req.payload.id).then(function(user) {
+    User.findById(req.body.opdracht.user.id).then(function(user) {
         if (!user) {
             return res.sendStatus(401);
         }
@@ -71,6 +75,10 @@ router.put('/opdracht', auth.required, function(req, res, next) {
 
         if (typeof req.body.opdracht.deadline !== 'undefined') {
             opdracht.deadline = req.body.opdracht.deadline;
+        }
+
+        if (typeof req.body.opdracht.afgewerkt !== 'undefined') {
+            opdracht.afgewerkt = req.body.opdracht.afgewerkt;
         }
 
         return opdracht.save().then(function() {

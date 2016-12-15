@@ -1,0 +1,20 @@
+<div class="beheer-opdrachten-page page">
+    <div class="container page">
+        <div class="student-toevoegen row">
+            <md-button class="pull-right md-primary md-raised opdracht-toevoegen-btn" ng-click="$ctrl.showBewerken($event, 'Toevoegen')">
+                Nieuwe student
+            </md-button>
+        </div>
+        <div class="studenten">
+            <md-list>
+                <md-list-item ng-repeat="student in $ctrl.studenten" class="noright">
+                    <p>{{ student.username }}</p>
+                    <md-icon ng-click="$ctrl.verwijder($event, student)">
+                        <i class="material-icons">delete</i>
+                    </md-icon>
+                </md-list-item>
+            </md-list>
+        </div>
+
+    </div>
+</div>
